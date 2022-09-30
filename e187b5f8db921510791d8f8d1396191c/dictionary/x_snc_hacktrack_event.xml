@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Event" max_length="40" name="x_snc_hacktrack_event" type="collection">
+        <element label="Link" max_length="1024" name="link" type="url"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Payload" max_length="4000" name="payload" type="string"/>
+        <element label="Type" max_length="40" name="type" type="string"/>
+        <element label="User" max_length="40" name="user" type="string"/>
+    </element>
+</database>

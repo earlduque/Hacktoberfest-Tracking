@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>Create Event</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+	var payload = request.body.data;
+	var http_status = 200;
+	var response_body = {"answer": "Received"};
+
+	if (payload.event_name == 'pull_request_target' && payload.event.action == 'closed' && payload.event.pull_request.merged === true) return; //this event type will be handled by the push event.
+	if (payload.event_name == 'push' && payload.event.commits && payload.event.commits.length == 1 && payload.event.commits[0].message.indexOf('!ignore') != -1) return; //if there is only one commit and that commit says "!ignore" in it, skip.
+
+	var event_gr = new GlideRecord('x_snc_hacktrack_event');
+	event_gr.newRecord();
+	event_gr.setValue('payload', JSON.stringify(payload, '', 4));
+	event_gr.setValue('type', payload.event_name);
+	event_gr.setValue('user', payload.actor);
+	if (payload.event && payload.event.issue) event_gr.setValue('github_link', 'https://github.com/ServiceNowDevProgram/code-snippets/issues/' + payload.event.issue.number);
+	else if (payload.event_name == 'pull_request_target') event_gr.setValue('github_link', 'https://github.com/ServiceNowDevProgram/code-snippets/pull/' + payload.event.number);
+	else if (payload.event && payload.event.forkee) event_gr.setValue('github_link', payload.event.forkee.clone_url);
+	else event_gr.setValue('github_link', 'https://github.com/ServiceNowDevProgram/code-snippets/commit/' + payload.sha);
+	event_gr.insert();
+
+	response.setContentType("application/json");
+	response_body.number = event_gr.getValue('number');
+	response.getStreamWriter().writeString(JSON.stringify(response_body));
+	response.setStatus(http_status);
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_snc_hacktrack/hacktrack</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>earl.duque</sys_created_by>
+        <sys_created_on>2022-09-30 05:09:21</sys_created_on>
+        <sys_id>afe97d7cdb921510791d8f8d1396193d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create Event</sys_name>
+        <sys_package display_value="Hacktoberfest Tracking" source="x_snc_hacktrack">e187b5f8db921510791d8f8d1396191c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hacktoberfest Tracking">e187b5f8db921510791d8f8d1396191c</sys_scope>
+        <sys_update_name>sys_ws_operation_afe97d7cdb921510791d8f8d1396193d</sys_update_name>
+        <sys_updated_by>earl.duque</sys_updated_by>
+        <sys_updated_on>2022-09-30 05:09:21</sys_updated_on>
+        <web_service_definition display_value="Hacktrack">efd9f97cdb921510791d8f8d139619a7</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>
