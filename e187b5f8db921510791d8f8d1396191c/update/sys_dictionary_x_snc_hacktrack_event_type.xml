@@ -11,7 +11,7 @@
 	return '';  // return the calculated value
 
 })(current);]]></calculation>
-        <choice/>
+        <choice>1</choice>
         <choice_field/>
         <choice_table/>
         <column_label>Type</column_label>
@@ -32,7 +32,7 @@
         <foreign_database/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="String">string</internal_type>
+        <internal_type display_value="Choice">choice</internal_type>
         <mandatory>false</mandatory>
         <max_length>40</max_length>
         <name>x_snc_hacktrack_event</name>
@@ -54,14 +54,14 @@
         <sys_created_by>earl.duque</sys_created_by>
         <sys_created_on>2022-09-30 05:07:41</sys_created_on>
         <sys_id>1f89b57cdb921510791d8f8d139619b6</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Type</sys_name>
         <sys_package display_value="Hacktoberfest Tracking" source="x_snc_hacktrack">e187b5f8db921510791d8f8d1396191c</sys_package>
         <sys_policy/>
         <sys_scope display_value="Hacktoberfest Tracking">e187b5f8db921510791d8f8d1396191c</sys_scope>
         <sys_update_name>sys_dictionary_x_snc_hacktrack_event_type</sys_update_name>
         <sys_updated_by>earl.duque</sys_updated_by>
-        <sys_updated_on>2022-09-30 05:07:41</sys_updated_on>
+        <sys_updated_on>2022-09-30 05:46:27</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

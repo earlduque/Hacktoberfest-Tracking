@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="Event" max_length="40" name="x_snc_hacktrack_event" type="collection">
+    <element label="Event" max_length="40" name="x_snc_hacktrack_event" sizeclass="990" type="collection">
+        <element choice="1" label="Action" max_length="40" name="action" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Closed" value="closed"/>
+                <element inactive_on_update="false" label="Opened" value="opened"/>
+            </choice>
+        </element>
         <element label="Link" max_length="1024" name="link" type="url"/>
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
         <element label="Payload" max_length="4000" name="payload" type="string"/>
-        <element label="Type" max_length="40" name="type" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Repository" max_length="128" name="repo" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="code-snippets" value="code-snippets"/>
+                <element inactive_on_update="false" label="example-instancescan-checks" value="example-instancescan-checks"/>
+                <element inactive_on_update="false" label="hacktoberfest22-flt-mgmt" value="hacktoberfest22-flt-mgmt"/>
+                <element inactive_on_update="false" label="hacktoberfest22-recipes" value="hacktoberfest22-recipes"/>
+                <element inactive_on_update="false" label="Plants" value="Plants"/>
+                <element inactive_on_update="false" label="Points-Thing" value="Points-Thing"/>
+                <element inactive_on_update="false" label="SlackerBot" value="SlackerBot"/>
+                <element inactive_on_update="false" label="SpoketoberfestResources" value="SpoketoberfestResources"/>
+                <element inactive_on_update="false" label="syntax_macros" value="syntax_macros"/>
+            </choice>
+        </element>
+        <element choice="1" label="Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Fork" value="fork"/>
+                <element inactive_on_update="false" label="Issues" value="issues"/>
+                <element inactive_on_update="false" label="Pull request target" value="pull_request_target"/>
+                <element inactive_on_update="false" label="Push" value="push"/>
+            </choice>
+        </element>
         <element label="User" max_length="40" name="user" type="string"/>
     </element>
 </database>

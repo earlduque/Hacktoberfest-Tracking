@@ -20,11 +20,13 @@
 	event_gr.newRecord();
 	event_gr.setValue('payload', JSON.stringify(payload, '', 4));
 	event_gr.setValue('type', payload.event_name);
+	if (payload.event && payload.event.action) event_gr.setValue('action', payload.event.action);
 	event_gr.setValue('user', payload.actor);
-	if (payload.event && payload.event.issue) event_gr.setValue('github_link', 'https://github.com/ServiceNowDevProgram/code-snippets/issues/' + payload.event.issue.number);
-	else if (payload.event_name == 'pull_request_target') event_gr.setValue('github_link', 'https://github.com/ServiceNowDevProgram/code-snippets/pull/' + payload.event.number);
-	else if (payload.event && payload.event.forkee) event_gr.setValue('github_link', payload.event.forkee.clone_url);
-	else event_gr.setValue('github_link', 'https://github.com/ServiceNowDevProgram/code-snippets/commit/' + payload.sha);
+	if (payload.event && payload.event.issue) event_gr.setValue('link', 'https://github.com/' + payload.repository + '/issues/' + payload.event.issue.number);
+	else if (payload.event_name == 'pull_request_target') event_gr.setValue('link', 'https://github.com/' + payload.repository + '/pull/' + payload.event.number);
+	else if (payload.event && payload.event.forkee) event_gr.setValue('link', payload.event.forkee.clone_url);
+	else event_gr.setValue('link', 'https://github.com/' + payload.repository + '/commit/' + payload.sha);
+	event_gr.setValue('repo', payload.repository.split('/')[1]);
 	event_gr.insert();
 
 	response.setContentType("application/json");
@@ -46,14 +48,14 @@
         <sys_created_by>earl.duque</sys_created_by>
         <sys_created_on>2022-09-30 05:09:21</sys_created_on>
         <sys_id>afe97d7cdb921510791d8f8d1396193d</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Create Event</sys_name>
         <sys_package display_value="Hacktoberfest Tracking" source="x_snc_hacktrack">e187b5f8db921510791d8f8d1396191c</sys_package>
         <sys_policy/>
         <sys_scope display_value="Hacktoberfest Tracking">e187b5f8db921510791d8f8d1396191c</sys_scope>
         <sys_update_name>sys_ws_operation_afe97d7cdb921510791d8f8d1396193d</sys_update_name>
         <sys_updated_by>earl.duque</sys_updated_by>
-        <sys_updated_on>2022-09-30 05:09:21</sys_updated_on>
+        <sys_updated_on>2022-09-30 16:25:30</sys_updated_on>
         <web_service_definition display_value="Hacktrack">efd9f97cdb921510791d8f8d139619a7</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
