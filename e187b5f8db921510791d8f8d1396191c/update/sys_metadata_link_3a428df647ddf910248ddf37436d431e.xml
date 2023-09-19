@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>ae6e2872479df910248ddf37436d4325</documentkey>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sysauto_script"&gt;
+    &lt;sysauto_script action="INSERT_OR_UPDATE"&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;business_calendar/&gt;
+        &lt;condition/&gt;
+        &lt;conditional&gt;false&lt;/conditional&gt;
+        &lt;entered_time&gt;1970-01-01 08:00:00&lt;/entered_time&gt;
+        &lt;name&gt;Hacktrack Daily report&lt;/name&gt;
+        &lt;offset/&gt;
+        &lt;offset_type&gt;0&lt;/offset_type&gt;
+        &lt;run_as display_value="Earl Duque"&gt;028c824bdbe988d0fde65223dc961989&lt;/run_as&gt;
+        &lt;run_as_tz/&gt;
+        &lt;run_dayofmonth&gt;1&lt;/run_dayofmonth&gt;
+        &lt;run_dayofweek&gt;1&lt;/run_dayofweek&gt;
+        &lt;run_period/&gt;
+        &lt;run_start&gt;2023-09-19 04:01:06&lt;/run_start&gt;
+        &lt;run_time&gt;1970-01-01 13:00:00&lt;/run_time&gt;
+        &lt;run_type&gt;daily&lt;/run_type&gt;
+        &lt;script&gt;&lt;![CDATA[var channel = gs.getProperty('x_snc_hacktrack.channel');
+var hackTable = 'x_snc_hacktrack_event';
+var forceSend = false;
+var useTest = false;
+
+var qTestDate = "sys_created_onON2023-09-08@javascript:gs.dateGenerate('2023-09-08','start')@javascript:gs.dateGenerate('2023-09-08','end')^action!=closed^ORaction=";
+var qYesterday = "sys_created_onONYesterday@javascript:gs.beginningOfYesterday()@javascript:gs.endOfYesterday()^action!=closed^ORaction=";
+var qLastYear = "sys_created_onONLast year@javascript:gs.beginningOfLastYear()@javascript:gs.endOfLastYear()^action!=closed^ORaction=";
+var qThisMonth = "sys_created_onONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()^action!=closed^ORaction=";
+
+var columnLabels = {
+	'fork': 'Forks',
+	'issues': 'Issues',
+	'opened': 'opened',
+	'pull_request_target': 'Pull requests',
+	'push': 'Commits/Pull requests approved'
+};
+
+function getLabel(varName){	
+	if (columnLabels[varName]) return columnLabels[varName];
+	else return varName;
+}
+
+var today = new Date();
+var year = today.getFullYear();
+var mon = today.getMonth() + 1;
+var day = today.getDate();
+if (mon &lt; 10) mon = '0' + mon;
+if (day &lt; 10) day = '0' + day;
+var formattedDate = year + '/' + mon + '/' + day;
+
+var lines = [];
+
+var month = new GlideAggregate(hackTable);
+if (useTest) {
+	month.addEncodedQuery(qTestDate);
+} else {
+	month.addEncodedQuery(qYesterday);
+}
+month.addAggregate('COUNT');
+month.groupBy('type');
+month.groupBy('action');
+month.query();
+
+if (month.hasNext()){
+	lines.push(' Hacktoberfest daily summary for ' + formattedDate + ' ');
+	lines.push('');
+	lines.push('*New*' + (useTest ? ' _(2023/09/08 test values)_' : ' _(since yesterday)_'));
+	while (month.next()){
+		lines.push('&gt; ' + getLabel(month.type) + (getLabel(month.action) ? ' ' + getLabel(month.action) : '') + ': ' + month.getAggregate('COUNT'));
+	}
+	lines.push('');
+
+	month = new GlideAggregate(hackTable);
+	if (useTest) {
+		month.addEncodedQuery(qLastYear);
+	} else {
+		month.addEncodedQuery(qThisMonth);
+	}
+	month.addAggregate('COUNT');
+	month.groupBy('type');
+	month.groupBy('action');
+	month.query();
+
+	if (month.hasNext()){
+		lines.push('*Total this month*' + (useTest ? ' _(October 2022 test values)_' : ' _(Hacktoberfest 2023)_'));
+		while (month.next()){
+			lines.push('&gt; ' + getLabel(month.type) + (getLabel(month.action) ? ' ' + getLabel(month.action) : '') + ': ' + month.getAggregate('COUNT'));
+		}
+	}
+
+// 	gs.info(lines.join('\n')); //internal only
+	new x_snc_slackerbot.Slacker().send_chat({'channel':channel}, lines.join('\n'), false );
+	
+} else {
+	
+// 	if (forceSend) gs.info('No new activity since yesterday'); //internal only
+	lines.push('No new activity since yesterday');
+	if (forceSend) new x_snc_slackerbot.Slacker().send_chat({'channel':channel}, lines.join('\n'), false );
+}]]&gt;&lt;/script&gt;
+        &lt;sys_class_name&gt;sysauto_script&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;earl.duque@servicenow.com&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2023-09-19 04:10:18&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;ae6e2872479df910248ddf37436d4325&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;34&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;Hacktrack Daily report&lt;/sys_name&gt;
+        &lt;sys_package display_value="Hacktoberfest Tracking" source="x_snc_hacktrack"&gt;e187b5f8db921510791d8f8d1396191c&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="Hacktoberfest Tracking"&gt;e187b5f8db921510791d8f8d1396191c&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sysauto_script_ae6e2872479df910248ddf37436d4325&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;earl.duque@servicenow.com&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2023-09-19 05:16:19&lt;/sys_updated_on&gt;
+        &lt;time_zone&gt;US/Eastern&lt;/time_zone&gt;
+        &lt;upgrade_safe&gt;false&lt;/upgrade_safe&gt;
+    &lt;/sysauto_script&gt;
+&lt;/record_update&gt;
+</payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+        <sys_created_on>2023-09-19 05:27:57</sys_created_on>
+        <sys_id>3a428df647ddf910248ddf37436d431e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Hacktrack Daily report</sys_name>
+        <sys_package display_value="Hacktoberfest Tracking" source="x_snc_hacktrack">e187b5f8db921510791d8f8d1396191c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hacktoberfest Tracking">e187b5f8db921510791d8f8d1396191c</sys_scope>
+        <sys_update_name>sys_metadata_link_3a428df647ddf910248ddf37436d431e</sys_update_name>
+        <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+        <sys_updated_on>2023-09-19 05:27:57</sys_updated_on>
+        <tablename>sysauto</tablename>
+    </sys_metadata_link>
+</record_update>
