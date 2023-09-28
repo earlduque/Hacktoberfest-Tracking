@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="type" table="x_snc_hacktrack_type" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>type</element>
+            <name>x_snc_hacktrack_type</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+            <sys_created_on>2023-09-26 05:34:06</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>type</sys_name>
+            <sys_package display_value="Hacktoberfest Tracking" source="x_snc_hacktrack">e187b5f8db921510791d8f8d1396191c</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Hacktoberfest Tracking">e187b5f8db921510791d8f8d1396191c</sys_scope>
+            <sys_update_name>sys_choice_x_snc_hacktrack_type_type</sys_update_name>
+            <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+            <sys_updated_on>2023-09-26 05:34:06</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>fork</label>
+            <language>en</language>
+            <name>x_snc_hacktrack_type</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+            <sys_created_on>2023-09-26 05:34:32</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e9e60581db6d3150791d8f8d139619cc</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+            <sys_updated_on>2023-09-26 05:34:33</sys_updated_on>
+            <value>fork</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>issues</label>
+            <language>en</language>
+            <name>x_snc_hacktrack_type</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+            <sys_created_on>2023-09-26 05:34:13</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>99d6c181db6d3150791d8f8d1396197a</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+            <sys_updated_on>2023-09-26 05:34:15</sys_updated_on>
+            <value>issues</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>pull_request_target</label>
+            <language>en</language>
+            <name>x_snc_hacktrack_type</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+            <sys_created_on>2023-09-26 05:34:23</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0bd68181db6d3150791d8f8d139619aa</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+            <sys_updated_on>2023-09-26 05:34:24</sys_updated_on>
+            <value>pull_request_target</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>push</label>
+            <language>en</language>
+            <name>x_snc_hacktrack_type</name>
+            <sequence/>
+            <synonyms/>
+            <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+            <sys_created_on>2023-09-26 05:34:06</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f9c6c181db6d3150791d8f8d13961979</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+            <sys_updated_on>2023-09-26 05:34:08</sys_updated_on>
+            <value>push</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>

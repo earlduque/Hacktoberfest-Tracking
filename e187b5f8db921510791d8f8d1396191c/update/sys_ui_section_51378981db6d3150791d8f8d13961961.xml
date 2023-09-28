@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="51378981db6d3150791d8f8d13961961" sys_domain="global" table="x_snc_hacktrack_type" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <position>0</position>
+            <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+            <sys_created_on>2023-09-26 05:38:07</sys_created_on>
+            <sys_id>84c741c1db6d3150791d8f8d139619f3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_hacktrack_type" sys_domain="global" view="Default view">51378981db6d3150791d8f8d13961961</sys_ui_section>
+            <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+            <sys_updated_on>2023-09-26 05:38:07</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>type</element>
+            <position>1</position>
+            <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+            <sys_created_on>2023-09-26 05:38:07</sys_created_on>
+            <sys_id>08c741c1db6d3150791d8f8d139619f3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_hacktrack_type" sys_domain="global" view="Default view">51378981db6d3150791d8f8d13961961</sys_ui_section>
+            <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+            <sys_updated_on>2023-09-26 05:38:07</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>action</element>
+            <position>2</position>
+            <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+            <sys_created_on>2023-09-26 05:38:07</sys_created_on>
+            <sys_id>88c741c1db6d3150791d8f8d139619f3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_hacktrack_type" sys_domain="global" view="Default view">51378981db6d3150791d8f8d13961961</sys_ui_section>
+            <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+            <sys_updated_on>2023-09-26 05:38:07</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>point</element>
+            <position>3</position>
+            <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+            <sys_created_on>2023-09-26 05:38:07</sys_created_on>
+            <sys_id>0cc741c1db6d3150791d8f8d139619f3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_hacktrack_type" sys_domain="global" view="Default view">51378981db6d3150791d8f8d13961961</sys_ui_section>
+            <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+            <sys_updated_on>2023-09-26 05:38:07</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_snc_hacktrack_type</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+            <sys_created_on>2023-09-26 05:35:45</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>51378981db6d3150791d8f8d13961961</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_hacktrack_type</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Hacktoberfest Tracking" source="x_snc_hacktrack">e187b5f8db921510791d8f8d1396191c</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Hacktoberfest Tracking">e187b5f8db921510791d8f8d1396191c</sys_scope>
+            <sys_update_name>sys_ui_section_51378981db6d3150791d8f8d13961961</sys_update_name>
+            <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+            <sys_updated_on>2023-09-26 05:35:45</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

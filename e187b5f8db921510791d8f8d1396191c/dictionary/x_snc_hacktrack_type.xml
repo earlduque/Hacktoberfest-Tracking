@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="2b46c941db6d3150791d8f8d1396199f" label="Type" max_length="40" name="x_snc_hacktrack_type" type="collection">
+        <element choice="1" label="Action" max_length="40" name="action" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="closed" value="closed"/>
+                <element inactive_on_update="false" label="opened" value="opened"/>
+            </choice>
+        </element>
+        <element label="Description" max_length="128" name="description" type="string"/>
+        <element label="Point" max_length="40" name="point" type="integer"/>
+        <element choice="1" label="Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="fork" value="fork"/>
+                <element inactive_on_update="false" label="issues" value="issues"/>
+                <element inactive_on_update="false" label="pull_request_target" value="pull_request_target"/>
+                <element inactive_on_update="false" label="push" value="push"/>
+            </choice>
+        </element>
+    </element>
+</database>

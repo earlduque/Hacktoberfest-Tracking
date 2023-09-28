@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_complex_object">
+    <sys_complex_object action="INSERT_OR_UPDATE">
+        <label/>
+        <name>FDe872594d7f6d31507f46047b99a668d3</name>
+        <namespace>FlowDesigner</namespace>
+        <scope_name>e187b5f8db921510791d8f8d1396191c</scope_name>
+        <serialized_content>{"FlowDesigner:FDe872594d7f6d31507f46047b99a668d3":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDe872594d7f6d31507f46047b99a668d3.$type_facets":{"SimpleMapFacet":"{\"sourceId\":\"\",\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"1b032f65-24df-47cb-ac80-7e307c31b541\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDe872594d7f6d31507f46047b99a668d3\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"sourceUiUniqueId\":\"\",\"sourceType\":\"\",\"hint\":\"\",\"uiType\":\"object\",\"order\":\"2\",\"max_length\":\"65000\"}"}}</serialized_content>
+        <sys_class_name>sys_complex_object</sys_class_name>
+        <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+        <sys_created_on>2023-09-26 06:24:51</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>ac72594ddb6d3150791d8f8d139619d3</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>FDe872594d7f6d31507f46047b99a668d3</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Hacktoberfest Tracking" source="x_snc_hacktrack">e187b5f8db921510791d8f8d1396191c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hacktoberfest Tracking">e187b5f8db921510791d8f8d1396191c</sys_scope>
+        <sys_update_name>sys_complex_object_ac72594ddb6d3150791d8f8d139619d3</sys_update_name>
+        <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+        <sys_updated_on>2023-09-26 06:25:19</sys_updated_on>
+        <type>complex_object_schema</type>
+    </sys_complex_object>
+</record_update>

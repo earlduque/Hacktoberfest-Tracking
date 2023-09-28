@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_snc_hacktrack_event</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Assign point</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	var et = new GlideRecord('x_snc_hacktrack_type');
+	et.addQuery('type', current.type + '');
+	et.addQuery('action', current.action + '');
+	et.query();
+	if (et.next()){
+		current.point = et.getValue('point');
+	}
+
+	if (current.type == 'pull_request_target' && current.action == 'closed'){
+		var payload = JSON.parse(current.payload);
+		if (current.user == payload.event.pull_request.user.login){
+			current.point = '0';
+			
+			var redact = new GlideRecord('x_snc_hacktrack_event');
+			redact.addEncodedQuery('type=pull_request_target^action=opened^link=' + current.link);
+			redact.query();
+			while (redact.next()){
+				redact.setValue('point', '0');
+				redact.update();
+			}
+		}
+	} else if (current.type == 'fork'){
+		var fork_gr = new GlideRecord('x_snc_hacktrack_event');
+		fork_gr.addEncodedQuery('type=fork^user=' + current.user + '^repo=' + current.repo);
+		fork_gr.query();
+		if (fork_gr.next()){
+			current.point = '0';
+		}
+	}
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>earl.duque@servicenow.com</sys_created_by>
+        <sys_created_on>2023-09-26 05:41:53</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0b2809c1db6d3150791d8f8d13961978</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Assign point</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Hacktoberfest Tracking" source="x_snc_hacktrack">e187b5f8db921510791d8f8d1396191c</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Hacktoberfest Tracking">e187b5f8db921510791d8f8d1396191c</sys_scope>
+        <sys_update_name>sys_script_0b2809c1db6d3150791d8f8d13961978</sys_update_name>
+        <sys_updated_by>earl.duque@servicenow.com</sys_updated_by>
+        <sys_updated_on>2023-09-27 20:31:50</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=0b2809c1db6d3150791d8f8d13961978"/>
+</record_update>
